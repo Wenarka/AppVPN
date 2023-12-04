@@ -12,6 +12,6 @@ namespace AppVPN.Models.Data
 
         [Required(ErrorMessage = "Введите сервер")]
         [Display(Name = "Сервер")]
-        public string CountryServer { get; set; }
+        public string? CountryServer { get; set; }
     }
 }

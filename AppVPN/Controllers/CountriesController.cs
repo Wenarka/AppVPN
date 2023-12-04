@@ -1,6 +1,7 @@
 ﻿using AppVPN.Models;
 using AppVPN.Models.Data;
 using AppVPN.ViewModels.Countries;
+using Humanizer.Localisation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -89,14 +90,23 @@ namespace AppVPN.Controllers
             {
                 return NotFound();
             }
+
+            EditCountryViewModel model = new()
+            {
+                Id = country.Id,
+                CountryServer = country.CountryServer
+            };
+
             return View(country);
         }
 
         // POST: Countries/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(short id, [Bind("Id,CountryServer")] Country country)
+        public async Task<IActionResult> Edit(short id, EditCountryViewModel model)
         {
+            Country country = await _context.Countries.FindAsync(id);
+
             if (id != country.Id)
             {
                 return NotFound();
@@ -106,6 +116,7 @@ namespace AppVPN.Controllers
             {
                 try
                 {
+                    country.CountryServer = model.CountryServer;
                     _context.Update(country);
                     await _context.SaveChangesAsync();
                 }
@@ -122,7 +133,7 @@ namespace AppVPN.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(country);
+            return View(model);
         }
 
         // GET: Countries/Delete/5

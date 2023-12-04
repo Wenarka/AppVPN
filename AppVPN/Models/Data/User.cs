@@ -9,8 +9,8 @@ namespace AppVPN.Models.Data
         //Для преподавателя могут понадобиться данные с ФИО
 
         //сообщение об ошибке при валидации на стороне клиента
-        [Required(ErrorMessage = "Введите ключ")]
+        //[Required(ErrorMessage = "Введите ключ")]
         [Display(Name = "Ключ")]
-        public required string AccessKey { get; set; }    
+        public string? AccessKey { get; set; }    
     }
 }
