@@ -13,5 +13,9 @@ namespace AppVPN.Models.Data
         [Required(ErrorMessage = "Введите сервер")]
         [Display(Name = "Сервер")]
         public string? CountryServer { get; set; }
+
+
+        //Навигационные свойства
+        public ICollection<Tarif> Tarifs { get; set;}
     }
-}
+} 

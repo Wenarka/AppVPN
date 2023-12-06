@@ -1,7 +1,6 @@
 ﻿using AppVPN.Models;
 using AppVPN.Models.Data;
 using AppVPN.ViewModels.Countries;
-using Humanizer.Localisation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

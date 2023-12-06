@@ -1,7 +1,7 @@
-﻿@model AppVPN.ViewModels.Countries.CreateCountryViewModel
+﻿@model AppVPN.ViewModels.Prices.Price
 
 @{
-    ViewData["Title"] = "Создание - Сервер";
+    ViewData["Title"] = "Создание - Цена";
 }
 
 <nav aria-label="breadcrumb">
@@ -26,15 +26,29 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CountryServer" class="control-label"></label>
-                <input asp-for="CountryServer" class="form-control" />
-                <span asp-validation-for="CountryServer" class="text-danger"></span>
+                <label asp-for="Cost" class="control-label"></label>
+                <input asp-for="Cost" class="form-control" />
+                <span asp-validation-for="Cost" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Добавить" class="btn btn-primary" />
+                <label asp-for="TarifCost" class="control-label"></label>
+                <input asp-for="TarifCost" class="form-control" />
+                <span asp-validation-for="TarifCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateInstal" class="control-label"></label>
+                <input asp-for="DateInstal" class="form-control" />
+                <span asp-validation-for="DateInstal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

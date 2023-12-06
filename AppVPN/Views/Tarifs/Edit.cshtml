@@ -1,0 +1,44 @@
+﻿@model AppVPN.Models.Data.Tarif
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tarif</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TarifName" class="control-label"></label>
+                <input asp-for="TarifName" class="form-control" />
+                <span asp-validation-for="TarifName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccessCountryId" class="control-label"></label>
+                <input asp-for="AccessCountryId" class="form-control" />
+                <span asp-validation-for="AccessCountryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
